@@ -1,6 +1,6 @@
 # WikiJS to Outline Migration Tool
 
-WIkiJS to Outline migration tool. Written by AI, it seems to work as expected :).
+WIkiJS to Outline migration tool. Written by AI, tested, updated, it seems to work as expected :).
 
 Published under MIT license.
 
