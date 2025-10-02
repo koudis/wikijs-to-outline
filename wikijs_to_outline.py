@@ -21,9 +21,10 @@ from datetime import datetime
 
 
 # Rate limit sleeps (seconds)
-RATE_LIMIT_SLEEP_CREATE = 0.1
-RATE_LIMIT_SLEEP_MOVE = 0.1
-RATE_LIMIT_SLEEP_UPDATE = 0.1
+RATE_LIMIT_SLEEP_CREATE = 0.6
+RATE_LIMIT_SLEEP_MOVE = 0.6
+RATE_LIMIT_SLEEP_UPDATE = 0.6
+RATE_LIMIT_SLEEP_UPLOAD = 0.6
 
 class WikiJSToOutlineConverter:
     def __init__(self, outline_url: str, api_token: str, wiki_dir: str):
@@ -200,6 +201,7 @@ class WikiJSToOutlineConverter:
                             self._log_event(md_rel_path, 'attachments', 'success', 'Uploaded attachment', {
                                 'file': str(file_path), 'url': attachment_url
                             })
+                        time.sleep(RATE_LIMIT_SLEEP_UPLOAD)
                         return attachment_url
                     else:
                         self._handle_upload_error(md_rel_path, "No attachment URL in response", file_path)
